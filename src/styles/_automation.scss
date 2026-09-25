@@ -1,0 +1,541 @@
+@use 'variables' as *;
+
+// ── Automation section shell ────────────────────────────
+.auto-section {
+  position: relative;
+}
+
+.auto-intro {
+  padding: $s7 5% 0;
+}
+
+.auto-heading {
+  margin-block-end: $s5;
+}
+
+.auto-outro {
+  padding: $s6 5% $s8;
+}
+
+// ── Scroll track + sticky story ─────────────────────────
+.auto-scroll-track {
+  position: relative;
+}
+
+.auto-sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  min-height: 100svh;
+  align-items: center;
+  overflow: hidden;
+  padding: $s5 5%;
+}
+
+// ── Achievements ────────────────────────────────────────
+.auto-achievements {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.7fr) 2fr;
+  gap: $s5;
+  align-items: start;
+  padding-block: $s4;
+  border-block: 1px solid $line;
+}
+
+.auto-achievements-title {
+  margin: 0;
+  font-family: $serif;
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.auto-badge-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: $s3;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.auto-badge a {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: $s3;
+  align-items: center;
+  min-height: 72px;
+  padding: $s3;
+  border: 1px solid $line;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color $t-fast ease, background $t-fast ease, transform $t-med $ease-out;
+}
+
+.auto-badge a:hover {
+  border-color: $line-strong;
+  background: $paper-hover;
+  transform: translateY(-2px);
+}
+
+.auto-badge a:focus-visible {
+  outline: 2px solid $focus;
+  outline-offset: 3px;
+}
+
+.auto-badge img {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
+.auto-badge-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.auto-badge-name {
+  font-family: $serif;
+  font-size: $fs-sm;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.auto-badge-note {
+  color: $muted;
+  font-size: $fs-micro;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.auto-badge-count {
+  position: absolute;
+  inset-block-start: 6px;
+  inset-inline-end: 8px;
+  padding: 1px 6px;
+  border: 1px solid $line-strong;
+  background: $paper;
+  color: $accent;
+  font-family: $serif;
+  font-size: $fs-micro;
+  font-variant-numeric: tabular-nums;
+}
+
+// ── Stats strip ─────────────────────────────────────────
+.auto-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $s4;
+  margin: $s5 0 $s6;
+}
+
+.auto-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.auto-stat-value {
+  font-family: $serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.auto-stat-label {
+  color: $muted;
+  font-size: $fs-micro;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+// ── Story stage ─────────────────────────────────────────
+.auto-story {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $s4;
+  padding-block: $s4;
+  border-block: 1px solid $line;
+  outline: none;
+}
+
+.auto-story:focus-visible {
+  outline: 2px solid $focus;
+  outline-offset: 4px;
+}
+
+.auto-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: $s6;
+  align-items: center;
+  min-height: clamp(280px, 38vh, 420px);
+}
+
+.auto-stage-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: $paper-deep;
+  overflow: hidden;
+  border: 1px solid $line;
+}
+
+.auto-visual-slot {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity $t-med $ease-out, transform 400ms $ease-out;
+  pointer-events: none;
+}
+
+.auto-visual-slot.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.auto-stage-frames {
+  position: absolute;
+  inset: 0;
+}
+
+.auto-frame {
+  position: absolute;
+  inset: 0;
+  background-image: url('/textures/automation/story-sheet.png');
+  background-repeat: no-repeat;
+  background-size: 400% 200%;
+  background-position:
+    calc(var(--col) * 33.333%)
+    calc(var(--row) * 100%);
+}
+
+.auto-stage-img {
+  position: absolute;
+  inset: 0;
+  background-color: $paper-deep;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.auto-stage-panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $s4;
+  background:
+    linear-gradient(135deg, transparent 0 48%, $line 48% 49%, transparent 49%),
+    $paper-deep;
+}
+
+.auto-stage-kind {
+  align-self: flex-start;
+  padding: 4px 10px;
+  border: 1px solid $accent;
+  color: $accent;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  background: $paper;
+}
+
+.auto-stage-panel-title {
+  font-family: $serif;
+  font-size: clamp(22px, 2.8vw, 34px);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: $ink;
+  max-width: 12ch;
+}
+
+.auto-stage-panel-repo {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+  font-size: 11px;
+  color: $muted;
+  letter-spacing: 0.04em;
+}
+
+.auto-stage-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $s2;
+  max-width: 44ch;
+}
+
+.auto-stage-index {
+  margin: 0;
+  color: $muted;
+  font-family: $serif;
+  font-size: $fs-xs;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.12em;
+}
+
+.auto-stage-index span {
+  color: $accent;
+  font-size: $fs-md;
+}
+
+.auto-stage-title {
+  margin: 0;
+  font-family: $serif;
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.auto-stage-purpose {
+  margin: 0;
+  color: $accent;
+  font-family: $serif;
+  font-size: $fs-sm;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+}
+
+.auto-stage-caption {
+  margin: 0;
+  color: $ink-soft;
+  font-size: $fs-sm;
+  line-height: 1.7;
+}
+
+.auto-stage-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $s2;
+  margin: 0;
+  color: $muted;
+  font-size: $fs-xs;
+}
+
+.auto-stage-repo {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.auto-stage-sep {
+  color: $line-strong;
+}
+
+.auto-stage-workflow {
+  padding: 2px 7px;
+  border: 1px solid $line;
+  color: $ink;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+  font-size: 11px;
+}
+
+.auto-stage-link {
+  margin-top: $s2;
+}
+
+// ── Progress rail ───────────────────────────────────────
+.auto-rail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $s2;
+}
+
+.auto-rail-tick {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.auto-rail-tick::after {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline: 6px;
+  height: 2px;
+  background: $line-strong;
+  content: '';
+  transform: translateY(-50%);
+  transition: background $t-fast ease, height $t-fast ease;
+}
+
+.auto-rail-tick:hover::after {
+  background: $ink;
+}
+
+.auto-rail-tick.is-active::after {
+  height: 3px;
+  background: $accent;
+}
+
+.auto-rail-tick:focus-visible {
+  outline: 2px solid $focus;
+  outline-offset: -2px;
+}
+
+// ── Featured agents ─────────────────────────────────────
+.auto-agents {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: $s4;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.auto-agent {
+  display: flex;
+  flex-direction: column;
+  gap: $s2;
+  padding: $s4;
+  border: 1px solid $line;
+  transition: border-color $t-fast ease;
+}
+
+.auto-agent:hover {
+  border-color: $line-strong;
+}
+
+.auto-agent-name {
+  margin: 0;
+  font-family: $serif;
+  font-size: $fs-md;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.auto-agent-purpose {
+  margin: 0;
+  color: $accent;
+  font-family: $serif;
+  font-size: $fs-xs;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.auto-agent-line {
+  margin: 0;
+  color: $ink-soft;
+  font-size: $fs-xs;
+  line-height: 1.65;
+  flex: 1;
+}
+
+.auto-agent-link {
+  align-self: flex-start;
+  margin-top: $s2;
+  font-size: $fs-micro;
+}
+
+// ── Reduced motion ──────────────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+  .auto-scroll-track {
+    height: auto !important;
+  }
+
+  .auto-sticky {
+    position: relative;
+    overflow: visible;
+    min-height: 0;
+  }
+
+  .auto-visual-slot {
+    transform: none;
+    transition: none;
+  }
+}
+
+// ── Responsive ──────────────────────────────────────────
+@media (max-width: 1024px) {
+  .auto-achievements {
+    grid-template-columns: 1fr;
+    gap: $s3;
+  }
+
+  .auto-badge-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .auto-stage {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+    gap: $s5;
+  }
+}
+
+@media (max-width: 850px) {
+  .auto-intro,
+  .auto-outro {
+    padding-inline: 2%;
+  }
+
+  .auto-sticky {
+    padding-inline: 2%;
+  }
+
+  .auto-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $s3 $s4;
+  }
+
+  .auto-stage {
+    grid-template-columns: 1fr;
+    gap: $s4;
+    min-height: 0;
+  }
+
+  .auto-stage-visual {
+    max-height: 36svh;
+    aspect-ratio: 16 / 10;
+  }
+
+  .auto-stage-copy {
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .auto-scroll-track {
+    height: auto !important;
+  }
+
+  .auto-sticky {
+    position: relative;
+    overflow: visible;
+    min-height: 0;
+    padding: $s5 2%;
+  }
+
+  .auto-badge-list {
+    grid-template-columns: 1fr;
+  }
+
+  .auto-story {
+    gap: $s3;
+  }
+
+  .auto-rail {
+    flex-wrap: wrap;
+  }
+
+  .auto-agents {
+    grid-template-columns: 1fr;
+  }
+}

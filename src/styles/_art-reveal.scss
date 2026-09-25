@@ -1,0 +1,64 @@
+@use 'variables' as *;
+
+.art-reveal {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.art-reveal__fallback {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 100%;
+  aspect-ratio: var(--art-ratio, 1.5);
+  place-items: center;
+  overflow: hidden;
+}
+
+.art-reveal__fallback > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: none;
+}
+
+.art-reveal__canvas {
+  position: absolute !important;
+  z-index: 2;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+}
+
+.art-reveal__canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.handwritten-note-wrap {
+  position: relative;
+  display: inline-block;
+  min-width: 126px;
+  min-height: 24px;
+  vertical-align: middle;
+}
+
+.handwritten-note-static {
+  position: absolute;
+  inset: 0;
+  color: #55534b;
+  font-family: $serif;
+  font-size: $fs-xs;
+  font-style: italic;
+}
+
+.handwritten-note-wrap svg {
+  position: absolute;
+  inset: -7px auto auto -10px;
+  max-width: 160px;
+}
+
+

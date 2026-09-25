@@ -1,0 +1,160 @@
+@use 'variables' as *;
+
+:root {
+  color: $ink;
+  background: $paper;
+  font-family: $sans;
+  font-size: $fs-base;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: $paper;
+  line-height: 1.6;
+}
+
+// Paper grain
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+// Focus — solid, offset, obvious
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid $focus;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  color: $paper;
+  background: $ink;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 20;
+  inset-block-start: $s2;
+  inset-inline-start: $s2;
+  padding: $s3 $s4;
+  transform: translateY(-150%);
+  background: $ink;
+  color: $paper;
+  font-size: $fs-sm;
+  text-decoration: none;
+  transition: transform $t-fast $ease-out;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-shell {
+  width: min(100% - 100px, 1360px);
+  margin-inline: auto;
+}
+
+.section-frame {
+  position: relative;
+  border-bottom: 1px solid $line;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: $s2;
+  margin: 0 0 $s4;
+  color: $muted;
+  font-size: $fs-xs;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $status;
+  vertical-align: 1px;
+}
+
+.drawn-link,
+.contact-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: $s4;
+  padding: 0 0 $s1;
+  border-bottom: 1px solid $ink;
+  font-size: $fs-sm;
+  text-decoration: none;
+  transition: gap $t-med $ease-out, color $t-med $ease-out, border-color $t-med $ease-out;
+}
+
+.drawn-link:hover,
+.contact-link:hover {
+  gap: 20px;
+  color: $accent;
+  border-color: $accent;
+}
+
+.drawn-link:active,
+.contact-link:active {
+  gap: 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

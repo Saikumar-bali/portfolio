@@ -1,0 +1,48 @@
+// Color — OKLCH roles. Warm paper canvas, near-black ink, rare terracotta accent.
+$ink: #242520;
+$ink-soft: #5f605a;
+$muted: #77776f;
+$paper: #f7f5ef;
+$paper-deep: #ece9df;
+$paper-hover: rgba(255, 255, 255, 0.5);
+$line: rgba(36, 37, 32, 0.16);
+$line-strong: rgba(36, 37, 32, 0.32);
+$accent: #bd5d37;
+$accent-ink: #9c4a29;
+$focus: #bd5d37;
+$status: #5c7d55;
+
+// Type
+$serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+$sans: 'Avenir Next', Avenir, 'Segoe UI', system-ui, sans-serif;
+
+// Scale — ratio ~1.32 (brand), base 15px
+$fs-micro: 10px;
+$fs-xs: 11px;
+$fs-sm: 13px;
+$fs-base: 15px;
+$fs-md: 17px;
+$fs-lg: clamp(24px, 3vw, 35px);
+$fs-xl: clamp(43px, 5vw, 70px);
+$fs-display: clamp(54px, 7.5vw, 108px);
+
+// Measure
+$measure: 66ch;
+$measure-narrow: 42ch;
+
+// Space — 1-4-9 rhythm (4px unit)
+$s1: 4px;
+$s2: 8px;
+$s3: 12px;
+$s4: 16px;
+$s5: 24px;
+$s6: 36px;
+$s7: 48px;
+$s8: 72px;
+$s9: 96px;
+
+// Motion
+$ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+$t-fast: 150ms;
+$t-med: 250ms;

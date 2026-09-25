@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(dir node_modules 2>nul && echo node_modules exists || echo node_modules missing)",
+      "Shell(dir node_modules/.bin/ 2>nul | findstr /i \"vite\\|eslint\")",
+      "Shell(npm:*)",
+      "Shell(rm:*)",
+      "Shell(Remove-Item:*)",
+      "Shell(rmdir:*)",
+      "Shell(dir:*)",
+      "Shell(findstr:*)",
+      "Shell(dir /b \"node_modules\\.bin\\*.cmd\" 2>nul)",
+      "Shell(dir /b \"node_modules\\.bin\\*.ps1\" 2>nul)",
+      "Shell(node --version)",
+      "Shell(set:*)",
+      "Shell(agent-browser:*)",
+      "Shell(npx eslint src/components/ui/ProjectGallery.jsx src/config/portfolioContent.js)",
+      "powershell",
+      "Shell(npx eslint src/components/ui/ProjectGallery.jsx)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}

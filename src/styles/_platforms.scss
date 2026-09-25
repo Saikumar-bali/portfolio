@@ -1,0 +1,157 @@
+@use 'variables' as *;
+
+// ── Platforms in production (horizontal marquee) ────────
+.platform-strip {
+  padding: $s7 0 $s6;
+  border-block: 1px solid $line;
+  overflow: hidden;
+}
+
+.platform-strip-head {
+  padding: 0 5% $s4;
+}
+
+.platform-strip-head h2 {
+  margin: 0;
+  font-family: $serif;
+  font-size: $fs-lg;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.platform-marquee {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+.platform-track {
+  display: flex;
+  width: max-content;
+  gap: $s3;
+  margin: 0;
+  padding: $s2 0;
+  list-style: none;
+  animation: platform-scroll 70s linear infinite;
+}
+
+.platform-marquee:hover .platform-track {
+  animation-play-state: paused;
+}
+
+.platform-card {
+  display: flex;
+  align-items: center;
+  gap: $s3;
+  flex: 0 0 auto;
+  min-height: 64px;
+  padding: $s3 $s4;
+  border: 1px solid $line;
+  background: $paper;
+  transition: border-color $t-fast ease, background $t-fast ease;
+}
+
+.platform-card:hover {
+  border-color: $line-strong;
+  background: $paper-hover;
+}
+
+.platform-logo {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.05);
+  opacity: 0.88;
+}
+
+.platform-card--aws .platform-logo {
+  width: 44px;
+}
+
+.platform-card:hover .platform-logo {
+  filter: none;
+  opacity: 1;
+}
+
+.platform-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.platform-name {
+  font-family: $serif;
+  font-size: $fs-sm;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.platform-proof {
+  color: $muted;
+  font-size: $fs-micro;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+// Screen-reader / reduced-motion list (visual marquee is aria-hidden)
+.platform-fallback {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+  list-style: none;
+}
+
+@keyframes platform-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .platform-marquee {
+    display: none;
+  }
+
+  .platform-fallback {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $s3;
+    padding: 0 5%;
+  }
+
+  .platform-fallback .platform-card {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 600px) {
+  .platform-strip {
+    padding: $s6 0 $s5;
+  }
+
+  .platform-proof {
+    max-width: 28ch;
+    white-space: normal;
+  }
+}
