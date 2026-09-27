@@ -5,3 +5,4 @@
 - Works in a Windows environment (PowerShell, Windows paths like `D:\portfolio-stickman`). Confidence: 0.9
 - Prefers images to be shown in full without cropping or clipping in image viewers and previews. Confidence: 0.85
 - Prefers contextual controls such as zoom to live inside the opened image viewer rather than as repeated badges on page-level thumbnails. Confidence: 0.95
+- Prefers polished, visually beautiful presentation copy that clearly communicates a project’s background, motivations, and intentions. Confidence: 0.9

@@ -108,9 +108,11 @@ function StoryStage({ activeIndex, onJump }) {
             <span className="auto-stage-sep" aria-hidden="true">·</span>
             <code className="auto-stage-workflow">{beat.workflow}</code>
           </p>
-          <a className="drawn-link auto-stage-link" href={beat.href} target="_blank" rel="noopener noreferrer">
-            Proof <span aria-hidden="true">&#8599;</span>
-          </a>
+          {beat.href && (
+            <a className="drawn-link auto-stage-link" href={beat.href} target="_blank" rel="noopener noreferrer">
+              Proof <span aria-hidden="true">&#8599;</span>
+            </a>
+          )}
         </div>
       </div>
       <div className="auto-rail" role="tablist" aria-label="Story beats">

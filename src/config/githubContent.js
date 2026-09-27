@@ -70,17 +70,6 @@ export const storyBeats = [
     img: '/textures/automation/crash-issue.png',
   },
   {
-    id: 'push',
-    title: 'The push',
-    repo: 'movie_mandir',
-    workflow: 'android-build.yml',
-    purpose: 'So every merge produces a ready-to-install APK with no manual build step.',
-    caption: 'Push to main spins up JDK 17, injects 12 secrets, runs Gradle assembleRelease, and uploads the APK artifact.',
-    sheet: { col: 0, row: 0 },
-    kind: 'ship',
-    href: 'https://github.com/Saikumar-bali/movie_mandir/actions/workflows/android-build.yml',
-  },
-  {
     id: 'night-shift',
     title: 'Night shift',
     repo: 'erp_automation_bot',

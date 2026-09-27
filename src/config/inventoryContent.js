@@ -21,11 +21,11 @@ const inventorySections = [
 ]
 
 const jobTitles = [
-  { title: 'Automation Architect', evidence: ['ERP Precision Automation Sniper', 'WhatsApp AI Automation Bot', 'Movie Mandir APK CI/CD', 'Telugu News Aggregator', 'SMS Interceptor App'] },
+  { title: 'Automation Architect', evidence: ['ERP Precision Automation Sniper', 'WhatsApp AI Automation Bot', 'Movie Mandir privacy correction', 'Telugu News Aggregator', 'SMS Interceptor App'] },
   { title: 'Full-Stack Engineer', evidence: ['AAGAM E-Commerce Monorepo', 'HippoClouds Website', 'Vaji News Platform', 'Patala Pustakam Bookstore'] },
   { title: 'AI Integration Engineer', evidence: ['ReelGenius AI', 'WhatsApp AI Automation Bot', 'AI Customer Support Bot', 'HFT Algo Suite', 'HippoClouds'] },
   { title: 'Fintech / Quantitative Developer', evidence: ['High-Frequency Algo Trading Suite', 'Public Grafana dashboard', 'VaR-based position sizing'] },
-  { title: 'React Native Developer', evidence: ['Movie Mandir SDUI app', 'SMS Interceptor App'] },
+  { title: 'React Native Developer', evidence: ['Movie Mandir SDUI study', 'SMS Interceptor App'] },
   { title: 'DevOps / CI-CD Engineer', evidence: ['GitHub Actions APK pipeline', 'Grafana observability', 'Cloudflare Workers', 'Docker', 'TurboRepo'] },
   { title: 'Solutions Architect', evidence: ['3-app monorepo + NestJS gateway', 'Server-Driven UI engine', 'Hybrid edge + origin backend', 'Dual-layer automation'] },
   { title: 'Quantitative Developer', evidence: ['Multi-strategy HFT concurrency', 'Sub-500ms crash recovery', 'VaR-based sizing', 'Live Grafana P&L'] },
@@ -36,7 +36,7 @@ const jobTitles = [
 const featuredProjects = [
   { name: 'High-Frequency Algo Trading Suite', proof: 'GitHub · Live Grafana Dashboard', type: 'Fintech engine', description: 'Production HFT engine executing multiple strategies across NSE, BSE, and MCX with crash recovery and live observability.', metrics: '<500ms crash recovery · 3 concurrent strategies · Live public dashboard', stack: 'Node.js · WebSocket · Supabase · Gemini AI · Grafana · AWS' },
   { name: 'AAGAM E-Commerce Monorepo', proof: 'GitHub', type: '3-app platform', description: 'Admin, Customer, and Rider apps synchronized through a centralized order-lifecycle finite state machine.', metrics: '3 client apps · TurboRepo monorepo · E2E type safety', stack: 'TypeScript · Next.js · NestJS · React Native · Socket.io · Prisma · PostgreSQL' },
-  { name: 'Movie Mandir — SDUI Streaming Platform', proof: 'APK v1.0.1 · GitHub', type: 'SDUI mobile', description: 'React Native CLI app whose UI is driven by a remote JSON schema, allowing UI changes without app releases.', metrics: '<150ms UI latency · SDUI engine · Auto APK CI/CD · Shipped v1.0.1', stack: 'React Native CLI · TypeScript · Supabase Realtime · Cloudinary · GitHub Actions' },
+  { name: 'Movie Mandir SDUI study', proof: 'Local UI study', type: 'Privacy retrospective', description: 'A React Native movie UI study that began with covert Telegram forwarding. The unsafe behavior and distribution links were removed; the remaining SDUI renderer is presented as a local demonstration.', metrics: 'Forwarding removed · Remote JSON renderer · Local study only', stack: 'React Native CLI · TypeScript · Server-Driven UI · Supabase Realtime · Cloudinary' },
   { name: 'ERP Precision Automation Sniper', proof: 'GitHub', type: 'Dual-layer automation', description: 'Attendance automation at 10:00:00.005 with geolocation spoofing and Cloudflare Worker + Playwright failover.', metrics: 'ms-level precision · Dual-layer redundancy · CF Workers primary', stack: 'Cloudflare Workers · Playwright · Python · GitHub Actions · Node.js' },
   { name: 'WhatsApp AI Automation Bot', proof: 'GitHub', type: 'Stealth automation', description: 'Selenium-based WhatsApp bot with Groq/Llama 3 responses and anti-bot detection bypass.', metrics: 'Stealth mode · Llama 3 LLM · Persistent session', stack: 'Python · Groq AI · Selenium · Llama 3' },
   { name: 'ReelGenius AI', proof: 'Live · GitHub', type: 'Client-side AI video', description: 'Browser-side AI video creator producing a synced MP4 reel from lyrics and music, zero server.', metrics: 'Gemini Flash AI · MP4 export · Zero server', stack: 'React · TypeScript · Gemini AI · Web Audio API · Canvas API · MediaRecorder' },
@@ -71,10 +71,10 @@ const achievements = [
   '20+ production systems architected and shipped independently',
   '10 live deployments publicly accessible',
   '9 public GitHub repositories',
-  '2 shipped Android APKs (Movie Mandir, SMS Interceptor)',
+  'Removed covert data forwarding from a Movie Mandir prototype',
   '1 public Grafana dashboard (live trading metrics)',
   'Sub-500ms crash recovery on HFT engine',
-  'Sub-150ms UI latency on SDUI mobile app',
+  'Built a remote JSON Server-Driven UI renderer for a local movie app study',
   '3 concurrent trading strategies running in parallel',
   '3 synchronized client apps in single monorepo',
   '20+ news sources scraped in one serverless pipeline',
@@ -88,8 +88,8 @@ const suggestedBullets = {
   fintech: 'Built a crash-proof HFT engine handling 3 concurrent strategies across NSE/BSE/MCX with sub-500ms state recovery and public Grafana observability.',
   ai: 'Integrated Gemini Flash, Groq/Llama 3, and GPT into production features — including browser-side AI video generation with zero server dependency.',
   fullstack: 'Architected a 3-app e-commerce monorepo (Admin/Customer/Rider) with NestJS gateway, Socket.io real-time sync, and a centralized order-lifecycle finite state machine.',
-  mobile: 'Engineered a Server-Driven UI streaming app in React Native CLI — entire UI rendered from remote JSON schema with sub-150ms latency and automated GitHub Actions APK releases.',
-  devops: 'Automated full mobile release pipeline via GitHub Actions — from code commit to published APK with zero manual steps.',
+  mobile: 'Built a React Native movie UI study with a remote JSON Server-Driven UI renderer, then removed its covert Telegram forwarding and narrowed the project to a local demonstration.',
+  devops: 'Automated mobile release pipelines for authorized applications, with build artifacts gated by repository and environment checks.',
   cloud: 'Deployed hybrid edge + origin architectures (Cloudflare Workers + Express) for cost-efficient, low-latency content delivery.',
   lead: 'Sole end-to-end owner of 20+ production systems — scoping, architecture, implementation, deployment, and monitoring across fintech, AI, mobile, and web.',
 }

@@ -92,7 +92,7 @@ export const platforms = [
   {
     id: 'reactnative',
     name: 'React Native',
-    proof: 'Movie Mandir and SMS Interceptor APKs',
+    proof: 'Movie Mandir UI study and SMS Interceptor app',
     icon: 'https://cdn.simpleicons.org/react/242520',
   },
   {
